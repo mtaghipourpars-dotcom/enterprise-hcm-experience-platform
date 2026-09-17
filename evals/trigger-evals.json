@@ -1,0 +1,11 @@
+[
+  {"query":"Build the employee HCM service portal on SAP HCM data with PA, OM, PT and payroll.","should_trigger":true},
+  {"query":"Add a Training Center service to the HCM Experience Platform.","should_trigger":true},
+  {"query":"Add My Appraisal and IDP for employees.","should_trigger":true},
+  {"query":"Map PA0002 into the employee profile database.","should_trigger":true},
+  {"query":"Design a manager approval inbox using the HCM Service Catalog.","should_trigger":true},
+  {"query":"Connect payroll result storage to the HCM experience layer.","should_trigger":true},
+  {"query":"Change the color of a standalone marketing website unrelated to HCM.","should_trigger":false},
+  {"query":"Write a Fibonacci function in Python.","should_trigger":false},
+  {"query":"Explain generic PostgreSQL indexing without reference to this project.","should_trigger":false}
+]

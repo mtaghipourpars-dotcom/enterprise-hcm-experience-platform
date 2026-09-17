@@ -1,0 +1,65 @@
+{
+  "skill_name": "enterprise-hcm-experience-platform",
+  "evals": [
+    {
+      "id": "domain-coverage",
+      "prompt": "Add a new employee-facing learning service for Training & Event Management.",
+      "expected_output": "The agent loads the Training reference, registers a Service Catalog entry, defines API/data dependencies, keeps SAP mapping explicit, applies authorization and adds tests.",
+      "assertions": [
+        "Training & Event Management reference is used",
+        "Service Catalog entry includes persona, API, UI component and permission",
+        "No fake business data is created",
+        "SAP source mapping is explicit or marked verification_required"
+      ],
+      "files": ["SKILL.md", "references/domains/training-event-management.md", "references/service-catalog.md"]
+    },
+    {
+      "id": "talent-domain",
+      "prompt": "Add My Appraisal to the employee experience.",
+      "expected_output": "The agent uses the Talent & Performance reference and creates a traceable service without inventing SAP table names.",
+      "assertions": [
+        "Talent & Performance reference is loaded",
+        "Service is mapped to an API and core entity",
+        "SAP mapping does not invent unsupported table names",
+        "Authorization and test coverage are included"
+      ],
+      "files": ["SKILL.md", "references/domains/talent-performance-management.md", "references/sap/talent-mapping.md"]
+    },
+    {
+      "id": "sap-base-first",
+      "prompt": "Add a new PA field that comes from SAP PA0002.",
+      "expected_output": "The agent updates the SAP-aligned base mapping first, then normalized field, API and UI, preserving source traceability.",
+      "assertions": [
+        "SAP-aligned base is updated before UI",
+        "Source table and field are preserved",
+        "Normalized entity retains source lineage",
+        "UI does not access SAP directly"
+      ],
+      "files": ["SKILL.md", "references/database-base-architecture.md", "references/sap/pa-mapping.md"]
+    },
+    {
+      "id": "no-hardcode",
+      "prompt": "Create a new service tile for My Payroll.",
+      "expected_output": "The service is configured through the catalog and translation keys, not hard-coded in a React component.",
+      "assertions": [
+        "Service is in catalog/configuration",
+        "FA and EN labels use translation keys",
+        "No business data is hard-coded",
+        "Permission is server-side"
+      ],
+      "files": ["SKILL.md", "references/service-catalog.md", "references/localization.md"]
+    },
+    {
+      "id": "payroll-result",
+      "prompt": "Implement payroll history.",
+      "expected_output": "The agent uses normalized payroll result entities but does not pretend that payroll results come from a single transparent PA table.",
+      "assertions": [
+        "Payroll result lineage is preserved",
+        "Source storage is treated as implementation-dependent",
+        "No invented SAP result table is used",
+        "Payroll service is traceable to database and source mapping"
+      ],
+      "files": ["SKILL.md", "references/domains/py.md", "references/sap/py-mapping.md"]
+    }
+  ]
+}

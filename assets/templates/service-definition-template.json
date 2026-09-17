@@ -1,0 +1,17 @@
+{
+  "code": "DOMAIN_SERVICE_001",
+  "domain": "PA|OM|PT|PY|TRAINING|TALENT",
+  "nameKeyFa": "service.example.fa",
+  "nameKeyEn": "service.example.en",
+  "personas": ["EMPLOYEE"],
+  "serviceType": "PROFILE|TRANSACTION|WORKFLOW|REPORT|ANALYTICS|SEARCH",
+  "readWrite": "READ|WRITE|READ_WRITE",
+  "sensitivity": "PUBLIC|INTERNAL|CONFIDENTIAL|HIGHLY_CONFIDENTIAL",
+  "uiComponent": "ComponentName",
+  "apiEndpoint": "/api/example",
+  "coreEntities": [],
+  "sapSources": [],
+  "permission": "domain.service.action",
+  "workflow": null,
+  "active": true
+}

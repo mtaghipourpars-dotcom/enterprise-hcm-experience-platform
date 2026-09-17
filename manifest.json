@@ -1,0 +1,21 @@
+{
+  "name": "enterprise-hcm-experience-platform",
+  "version": "1.0.0",
+  "domains": [
+    "PA",
+    "OM",
+    "PT",
+    "PY",
+    "TRAINING",
+    "TALENT"
+  ],
+  "architecture": "sap-aligned-base + normalized-core + service-catalog + experience",
+  "entrypoint": "SKILL.md",
+  "validation_scripts": [
+    "scripts/validate_skill.py",
+    "scripts/validate_catalog.py",
+    "scripts/validate_traceability.py",
+    "scripts/validate_i18n.py"
+  ],
+  "source_alignment": "SAP HCM classic infotype/table anchors + target-DDIC verification contract"
+}
