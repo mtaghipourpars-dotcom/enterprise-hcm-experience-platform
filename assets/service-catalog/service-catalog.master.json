@@ -29,6 +29,18 @@
     {"code":"EXEC_WORKFORCE_001","domain":"ANALYTICS","personas":["EXECUTIVE"],"type":"ANALYTICS","component":"WorkforceOverview","api":"/api/executive/workforce","permission":"executive.workforce.read"},
     {"code":"EXEC_COST_001","domain":"ANALYTICS","personas":["EXECUTIVE"],"type":"ANALYTICS","component":"HrCostIntelligence","api":"/api/executive/cost","permission":"executive.cost.read"},
     {"code":"EXEC_TRAINING_001","domain":"ANALYTICS","personas":["EXECUTIVE"],"type":"ANALYTICS","component":"TrainingIntelligence","api":"/api/executive/training","permission":"executive.training.read"},
-    {"code":"EXEC_TALENT_001","domain":"ANALYTICS","personas":["EXECUTIVE"],"type":"ANALYTICS","component":"TalentIntelligence","api":"/api/executive/talent","permission":"executive.talent.read"}
+    {"code":"EXEC_TALENT_001","domain":"ANALYTICS","personas":["EXECUTIVE"],"type":"ANALYTICS","component":"TalentIntelligence","api":"/api/executive/talent","permission":"executive.talent.read"},
+    {"code":"MGR_TIME_001","domain":"PT","personas":["MANAGER"],"type":"REPORT","component":"TeamTimeOverview","api":"/api/manager/time","permission":"manager.time.read"},
+    {"code":"MGR_CAPABILITY_001","domain":"TALENT","personas":["MANAGER"],"type":"ANALYTICS","component":"TeamCapabilityMatrix","api":"/api/manager/capabilities","permission":"manager.capability.read"},
+    {"code":"MGR_TRAINING_001","domain":"TRAINING","personas":["MANAGER"],"type":"APPROVAL","component":"TeamTrainingApproval","api":"/api/manager/training","permission":"manager.training.write"},
+    {"code":"MGR_TALENT_001","domain":"TALENT","personas":["MANAGER"],"type":"ANALYTICS","component":"TeamTalentReview","api":"/api/manager/talent","permission":"manager.talent.read"},
+    {"code":"EXEC_ORG_001","domain":"OM","personas":["EXECUTIVE"],"type":"ANALYTICS","component":"OrgStructureAnalytics","api":"/api/executive/org","permission":"executive.org.read"},
+    {"code":"EXEC_SUCCESSION_001","domain":"TALENT","personas":["EXECUTIVE"],"type":"ANALYTICS","component":"SuccessionCoverage","api":"/api/executive/succession","permission":"executive.succession.read"},
+    {"code":"PA_CONTRACT_001","domain":"PA","personas":["EMPLOYEE","MANAGER","HR_ADMIN"],"type":"PROFILE","component":"ContractProfile","api":"/api/employee/:id/contract","permission":"employee.contract.read"},
+    {"code":"PT_OVERTIME_001","domain":"PT","personas":["EMPLOYEE","MANAGER"],"type":"WORKFLOW","component":"OvertimeManager","api":"/api/time/overtime","permission":"time.overtime.read"},
+    {"code":"PY_LOAN_001","domain":"PY","personas":["EMPLOYEE","HR_ADMIN"],"type":"REPORT","component":"LoanSchedule","api":"/api/payroll/loans","permission":"payroll.loan.read"},
+    {"code":"PE_CERTIFICATE_001","domain":"TRAINING","personas":["EMPLOYEE","MANAGER","EXECUTIVE"],"type":"REPORT","component":"CertificateVault","api":"/api/training/certificates","permission":"training.certificate.read"},
+    {"code":"TM_COMPETENCY_001","domain":"TALENT","personas":["EMPLOYEE","MANAGER","EXECUTIVE"],"type":"REPORT","component":"CompetencyRadar","api":"/api/talent/competencies","permission":"talent.competency.read"},
+    {"code":"EXEC_RETENTION_001","domain":"ANALYTICS","personas":["EXECUTIVE"],"type":"ANALYTICS","component":"RetentionAnalytics","api":"/api/analytics/retention","permission":"executive.retention.read"}
   ]
 }

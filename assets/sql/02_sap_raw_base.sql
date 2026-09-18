@@ -13,10 +13,12 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0000 (
   _source_system varchar(100) NOT NULL,
   _source_table varchar(30) NOT NULL DEFAULT 'PA0000',
   _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
   _extract_ts timestamptz,
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, begda, endda, massn, massg)
 );
 
@@ -39,10 +41,12 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0001 (
   _source_system varchar(100) NOT NULL,
   _source_table varchar(30) NOT NULL DEFAULT 'PA0001',
   _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
   _extract_ts timestamptz,
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, begda, endda)
 );
 
@@ -64,10 +68,12 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0002 (
   _source_system varchar(100) NOT NULL,
   _source_table varchar(30) NOT NULL DEFAULT 'PA0002',
   _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
   _extract_ts timestamptz,
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, begda, endda)
 );
 
@@ -88,10 +94,12 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0006 (
   _source_system varchar(100) NOT NULL,
   _source_table varchar(30) NOT NULL DEFAULT 'PA0006',
   _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
   _extract_ts timestamptz,
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
 );
 
@@ -110,10 +118,12 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0021 (
   _source_system varchar(100) NOT NULL,
   _source_table varchar(30) NOT NULL DEFAULT 'PA0021',
   _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
   _extract_ts timestamptz,
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
 );
 
@@ -132,10 +142,12 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0022 (
   _source_system varchar(100) NOT NULL,
   _source_table varchar(30) NOT NULL DEFAULT 'PA0022',
   _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
   _extract_ts timestamptz,
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
 );
 
@@ -155,6 +167,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0024 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
 );
 
@@ -175,6 +188,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0007 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, begda, endda)
 );
 
@@ -198,6 +212,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0008 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
 );
 
@@ -220,6 +235,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0014 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda, lgart)
 );
 
@@ -242,6 +258,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0015 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda, lgart)
 );
 
@@ -261,6 +278,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa0045 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
 );
 
@@ -285,6 +303,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa2001 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
 );
 
@@ -308,6 +327,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa2002 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
 );
 
@@ -327,6 +347,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa2005 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
 );
 
@@ -349,6 +370,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa2006 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
 );
 
@@ -368,6 +390,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.pa2007 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
 );
 
@@ -388,6 +411,7 @@ CREATE TABLE IF NOT EXISTS sap_raw.hrp1000 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, otype, objid, istat, begda, endda)
 );
 
@@ -410,5 +434,355 @@ CREATE TABLE IF NOT EXISTS sap_raw.hrp1001 (
   _load_ts timestamptz NOT NULL DEFAULT now(),
   _record_hash text,
   _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
   PRIMARY KEY (mandt, otype, objid, rsign, relat, sclas, sobid, begda, endda)
 );
+
+CREATE TABLE IF NOT EXISTS sap_raw.pa0041 (
+  mandt varchar(3) NOT NULL,
+  pernr varchar(8) NOT NULL,
+  subty varchar(4) NOT NULL DEFAULT '',
+  objps varchar(2) NOT NULL DEFAULT '',
+  sprps varchar(1) NOT NULL DEFAULT '',
+  endda date NOT NULL,
+  begda date NOT NULL,
+  dar01 varchar(2),
+  dat01 date,
+  dar02 varchar(2),
+  dat02 date,
+  dar03 varchar(2),
+  dat03 date,
+  dar04 varchar(2),
+  dat04 date,
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'PA0041',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.pa0016 (
+  mandt varchar(3) NOT NULL,
+  pernr varchar(8) NOT NULL,
+  subty varchar(4) NOT NULL DEFAULT '',
+  objps varchar(2) NOT NULL DEFAULT '',
+  sprps varchar(1) NOT NULL DEFAULT '',
+  endda date NOT NULL,
+  begda date NOT NULL,
+  cttyp varchar(2),
+  ctnum varchar(20),
+  ctbeg date,
+  ctend date,
+  kdgfr varchar(3),
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'PA0016',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.pa0028 (
+  mandt varchar(3) NOT NULL,
+  pernr varchar(8) NOT NULL,
+  subty varchar(4) NOT NULL,
+  objps varchar(2) NOT NULL DEFAULT '',
+  sprps varchar(1) NOT NULL DEFAULT '',
+  endda date NOT NULL,
+  begda date NOT NULL,
+  examd date,
+  examm varchar(4),
+  resul varchar(2),
+  diagn text,
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'PA0028',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, pernr, subty, objps, sprps, begda, endda)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.hrp1002 (
+  mandt varchar(3) NOT NULL,
+  plvar varchar(2) NOT NULL DEFAULT '01',
+  otype varchar(2) NOT NULL,
+  objid varchar(8) NOT NULL,
+  subty varchar(4) NOT NULL,
+  istat varchar(1) NOT NULL DEFAULT '1',
+  begda date NOT NULL,
+  endda date NOT NULL,
+  tformat varchar(2),
+  tline text,
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'HRP1002',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, plvar, otype, objid, subty, istat, begda, endda)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.teven (
+  mandt varchar(3) NOT NULL,
+  pernr varchar(8) NOT NULL,
+  ldate date NOT NULL,
+  ltime time NOT NULL,
+  satza varchar(3) NOT NULL,
+  terid varchar(4),
+  abwgr varchar(4),
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'TEVEN',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, pernr, ldate, ltime, satza)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.py_cluster_result (
+  mandt varchar(3) NOT NULL,
+  pernr varchar(8) NOT NULL,
+  seqnr varchar(5) NOT NULL,
+  inper varchar(6) NOT NULL,
+  fpper varchar(6) NOT NULL,
+  paydt date NOT NULL,
+  waers varchar(5),
+  gross_amount numeric(18,2),
+  net_amount numeric(18,2),
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'PCL2_B2_PAYROLL',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, pernr, seqnr)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.py_cluster_rt (
+  mandt varchar(3) NOT NULL,
+  pernr varchar(8) NOT NULL,
+  seqnr varchar(5) NOT NULL,
+  lgart varchar(4) NOT NULL,
+  betrg numeric(18,2),
+  anzhl numeric(12,2),
+  waers varchar(5),
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'PAYROLL_RT',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, pernr, seqnr, lgart)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.py_cluster_wagetype_trace (
+  mandt varchar(3) NOT NULL,
+  pernr varchar(8) NOT NULL,
+  seqnr varchar(5) NOT NULL,
+  lgart varchar(4) NOT NULL,
+  rule_id varchar(10) NOT NULL,
+  step_sequence integer NOT NULL,
+  operation text,
+  input_amount numeric(18,2),
+  output_amount numeric(18,2),
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'PAYROLL_TRACE',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, pernr, seqnr, lgart, rule_id, step_sequence)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.tem_course_type (
+  mandt varchar(3) NOT NULL,
+  objid varchar(8) NOT NULL,
+  begda date NOT NULL,
+  endda date NOT NULL,
+  short varchar(40),
+  stext varchar(120),
+  parid varchar(8),
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'TEM_HRP1000_D',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, objid, begda, endda)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.tem_event (
+  mandt varchar(3) NOT NULL,
+  objid varchar(8) NOT NULL,
+  begda date NOT NULL,
+  endda date NOT NULL,
+  evtyp varchar(1),
+  location varchar(8),
+  capacity integer,
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'TEM_HRP1000_E',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, objid, begda, endda)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.tem_booking (
+  mandt varchar(3) NOT NULL,
+  eveid varchar(8) NOT NULL,
+  parid varchar(8) NOT NULL,
+  seqnr varchar(3) NOT NULL DEFAULT '001',
+  begda date NOT NULL,
+  endda date NOT NULL,
+  priox varchar(1),
+  bstat varchar(1),
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'PAD25_HRP1001_025',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, eveid, parid, seqnr, begda, endda)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.tem_resource (
+  mandt varchar(3) NOT NULL,
+  objid varchar(8) NOT NULL,
+  otype varchar(2) NOT NULL,
+  begda date NOT NULL,
+  endda date NOT NULL,
+  short varchar(40),
+  stext varchar(120),
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'TEM_HRP1000_G_R',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, objid, otype, begda, endda)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.talent_appraisal_template (
+  mandt varchar(3) NOT NULL,
+  template_id varchar(12) NOT NULL,
+  version varchar(4) NOT NULL DEFAULT '0001',
+  begda date NOT NULL,
+  endda date NOT NULL,
+  title varchar(120),
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'TALENT_HAP_TEMPLATE',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, template_id, version, begda, endda)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.talent_appraisal_doc (
+  mandt varchar(3) NOT NULL,
+  appraisal_id varchar(16) NOT NULL,
+  pernr varchar(8) NOT NULL,
+  appraiser_pernr varchar(8),
+  begda date NOT NULL,
+  endda date NOT NULL,
+  apstatus varchar(2),
+  final_rating varchar(4),
+  final_score numeric(6,2),
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'TALENT_HAP_DOCUMENT',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, appraisal_id)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.talent_goal_extract (
+  mandt varchar(3) NOT NULL,
+  goal_id varchar(16) NOT NULL,
+  pernr varchar(8) NOT NULL,
+  cycle_id varchar(8) NOT NULL,
+  begda date NOT NULL,
+  endda date NOT NULL,
+  weight numeric(5,2),
+  status varchar(2),
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'TALENT_GOALS_EXTRACT',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, goal_id, pernr, cycle_id)
+);
+
+CREATE TABLE IF NOT EXISTS sap_raw.talent_succession_extract (
+  mandt varchar(3) NOT NULL,
+  nomination_id varchar(16) NOT NULL,
+  position_objid varchar(8) NOT NULL,
+  candidate_pernr varchar(8) NOT NULL,
+  begda date NOT NULL,
+  endda date NOT NULL,
+  readiness varchar(2),
+  ranking integer,
+  _source_system varchar(100) NOT NULL,
+  _source_table varchar(30) NOT NULL DEFAULT 'TALENT_SUCCESSION_EXTRACT',
+  _source_key text NOT NULL,
+  _payload jsonb NOT NULL DEFAULT '{}'::jsonb,
+  _extract_ts timestamptz,
+  _load_ts timestamptz NOT NULL DEFAULT now(),
+  _record_hash text,
+  _sync_run_id uuid,
+  _valid_record boolean NOT NULL DEFAULT true,
+  PRIMARY KEY (mandt, nomination_id)
+);
+

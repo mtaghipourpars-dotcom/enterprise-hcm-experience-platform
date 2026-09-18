@@ -1,0 +1,6 @@
+{
+  "name": "Enterprise HCM Experience Platform",
+  "description": "Database-first, SAP-aligned enterprise HCM platform across PA, OM, PT, PY, Training, Talent, Security, Workflow, and Integration",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
